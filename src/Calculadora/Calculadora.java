@@ -13,7 +13,12 @@ public class Calculadora {
             String input = scanner.nextLine();
             if (validOperation(input)){
                 String[] inputArray = input.split("");
-                System.out.println(calcular(inputArray[1], Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[2])));
+                int a = Integer.parseInt(inputArray[0]);
+                int b = Integer.parseInt(inputArray[2]);
+                Calculadora calculadora = new Calculadora(a, b);
+                String operador = inputArray[1];
+                int result = calculadora.calcular(operador);
+                System.out.println("El resultado es: " + result);
             }else {
                 System.out.println("Porfavor elije una operacion valida (3x3)");
             }
@@ -21,17 +26,37 @@ public class Calculadora {
         }
     }
 
+    public int a;
+    public int b;
+
+    public Calculadora(int a ,int b){
+        this.a = a;
+        this.b = b;
+    }
+    public int sumar(){
+        return a + b;
+    }
+    public int restar(){
+        return a - b;
+    }
+    public int multiplicar(){
+        return a * b;
+    }
+    public int dividir(){
+        return a / b;
+    }
 
 
-    public static int calcular(String operador , int a , int b){
+
+    public  int calcular(String operador){
 
         return switch (operador) {
-            case "+" -> a + b;
-            case "-" -> a - b;
-            case "x" -> a * b;
-            case "X" -> a * b;
-            case "*" -> a * b;
-            case "/" -> a / b;
+            case "+" -> sumar();
+            case "-" -> restar();
+            case "x" -> multiplicar();
+            case "X" -> multiplicar();
+            case "*" -> multiplicar();
+            case "/" -> dividir();
             default -> Integer.MAX_VALUE;
         };
     }
