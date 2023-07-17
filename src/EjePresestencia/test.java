@@ -8,6 +8,7 @@ public class test {
     public void testMultiplicarMatrizes() {
         int[][] matrix1 = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
         int[][] matrix2 = {{2, 2, 2}, {2, 2, 2}, {2, 2, 2}};
+
         int[][] expected = {{6,6,6},{6,6,6},{6,6,6}};
 
         int[][] result = MultiplicarMatrices.multiplicarMatrizes(matrix1, matrix2);
